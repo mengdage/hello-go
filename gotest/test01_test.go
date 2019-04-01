@@ -46,8 +46,6 @@ func TestDownload(t *testing.T) {
 	server := mockServer()
 	defer server.Close()
 
-	t.Logf("test server URL: %s", server.URL)
-
 	t.Log("Given the need to test downloading content.")
 	{
 		t.Logf("\tWhen checking \"%s\" for status code \"%d\"", url, statusCode)

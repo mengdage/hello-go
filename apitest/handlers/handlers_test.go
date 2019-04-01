@@ -19,6 +19,7 @@ func init() {
 func TestSendJSON(t *testing.T) {
 	t.Log("Given the need to test the SendJSON endpoint.")
 	{
+		// create a req aka client request
 		req, err := http.NewRequest("GET", "/sendjson", nil)
 
 		if err != nil {
@@ -26,7 +27,10 @@ func TestSendJSON(t *testing.T) {
 		}
 		t.Log("\tShould be able to create a request.", checkMark)
 
+		// create a response recorder
 		recorder := httptest.NewRecorder()
+
+		// send the request to the server and record response data in recorder
 		http.DefaultServeMux.ServeHTTP(recorder, req)
 
 		if recorder.Code != 200 {
